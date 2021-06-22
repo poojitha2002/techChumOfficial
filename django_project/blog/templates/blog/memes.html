@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+
+ {% ifequal c 1  %}
+  <a href="{% url 'addMemes'  %}"><button type="button" class="btn btn-info">Add Memes</button></a>
+  {% endifequal %}
+{% for r in content %}
+<center><div class="card" style="width: 1000px">
+  <img class="card-img-top" src="{{r.image.url}}"    height="500rem">
+
+</div>
+     {% ifequal c 1  %}
+  <a href="{% url 'deleteMemes' r.id  %}"><button type="button" class="btn btn-danger">Delete Meme</button></a>
+  {% endifequal %}
+</center>
+{% endfor %}
+{% endblock content %}

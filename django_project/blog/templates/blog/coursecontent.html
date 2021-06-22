@@ -1,0 +1,49 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ {% load static %}
+
+
+
+ {% ifequal c 1  %}
+  <a href="{% url 'addCourseContent' id %}"><button type="button" class="btn btn-info">Add Content</button></a>
+  {% endifequal %}
+
+{% for events in content %}
+
+<div id="accordion">
+
+
+    <div class="card">
+
+        <div class="card-header" id="heading{{ events.id }}">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ events.id }}" aria-expanded="false"
+                        aria-controls="collapseOne">
+                    {{ events.day }}
+                </button>
+            </h5>
+        </div>
+
+
+        <div id="collapse{{ events.id }}" class="collapse " aria-labelledby="heading{{ events.id }}" data-parent="#accordion">
+            <div class="card-body">
+
+               {{events.content|safe}}
+
+            </div>
+
+        </div>
+
+    </div>
+ {% ifequal c 1  %}
+<a href="{% url 'deletecontent' events.id %}" class="btn btn-primary">Delete Course Content</a>
+      {% endifequal %}
+
+</div>
+{% endfor %}
+
+
+</div>
+
+{% endblock content %}
+

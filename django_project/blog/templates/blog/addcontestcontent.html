@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ {% load static %}
+
+ {% ifequal c 1  %}
+  <a href="{% url 'addResource'  %}"><button type="button" class="btn btn-info">Add Resource</button></a>
+  {% endifequal %}
+ <div>
+         <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <legend >Add  Contest Questions</legend>
+               {{form.media}}
+               {{form.as_p}}
+            </fieldset>
+            <div >
+                <button class="btn btn-outline-info" type="submit">Add</button>
+            </div>
+        </form>
+           </div>
+
+{% endblock content %}

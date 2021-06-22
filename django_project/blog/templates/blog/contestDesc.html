@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ {% load static %}
+
+ {% ifequal c1 1  %}
+  <a href="{% url 'addContestContent' id %}"><button type="button" class="btn btn-info">Add Questions</button></a>
+  {% endifequal %}
+{% for r in desc %}
+
+
+<div class="card" style="width:40rem">
+  <img class="card-img-top" src="{{r.img.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{r.contest}}</h5>
+    <p class="card-text">{{r.contest_desc}}</p>
+    {% ifequal c 1 %}
+    <a href="{% url 'submit' %}"><button class="btn btn-primary" >Submit</button></a>
+     {% endifequal %}
+  </div>
+
+</div>
+
+
+<br>
+{% endfor %}
+{% endblock content %}

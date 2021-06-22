@@ -1,0 +1,112 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ {% load static %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/contact.css' %}">
+</head>
+<div class="container animated fadeIn">
+
+  <div class="row">
+    <center> <h1 class="header-title"> Contact Us </h1></center>
+    <hr>
+    <div class="col-sm-12" id="parent">
+    	<div class="col-sm-6">
+    	<iframe width="100%" height="320px;" frameborder="0" style="border:0" <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61263.804770063536!2d80.39949900356372!3d16.323567713298317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a755cb1787785%3A0x9f7999dd90f1e694!2sGuntur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1619767450144!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    	</div>
+
+    	<div class="col-sm-6">
+    		<form action="{% url 'contact' %}" class="contact-form" method="post">
+           {% csrf_token %}
+		        <div class="form-group">
+		          <input type="text" class="form-control" id="name" name="nm" placeholder="Name" required="" autofocus="">
+		        </div>
+
+
+		        <div class="form-group form_left">
+		          <input type="email" class="form-control" id="email" name="em" placeholder="Email" required="">
+		        </div>
+
+		      <div class="form-group">
+		           <input type="text" class="form-control" id="subject"   placeholder="Subject" required="">
+		      </div>
+		      <div class="form-group">
+		      <textarea class="form-control textarea-contact" rows="5" id="comment" name="message" placeholder="Type Your Message/Feedback here..." required=""></textarea>
+		      <br>
+	      	  <button class="btn btn-default btn-send"> <span class="glyphicon glyphicon-send"></span> Send </button>
+		      </div>
+     		</form>
+    	</div>
+    </div>
+  </div>
+
+  <div class="container second-portion">
+	<div class="row">
+        <!-- Boxes de Acoes -->
+    	<div class="col-xs-12 col-sm-6 col-lg-4">
+			<div class="box">
+				<div class="icon">
+					<div class="image"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+					<div class="info">
+						<h3 class="title">MAIL & WEBSITE</h3>
+						<p>
+							<i class="fa fa-envelope" aria-hidden="true"></i> &nbsp codingkingdom@gmail.com
+							<br>
+							<br>
+							<i class="fa fa-globe" aria-hidden="true"></i> &nbsp www.codingKingdom.com
+						</p>
+
+					</div>
+				</div>
+				<div class="space"></div>
+			</div>
+		</div>
+
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+			<div class="box">
+				<div class="icon">
+					<div class="image"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+					<div class="info">
+						<h3 class="title">CONTACT</h3>
+    					<p>
+							<i class="fa fa-mobile" aria-hidden="true"></i> &nbsp (+91)-9624XXXXX
+							<br>
+							<br>
+							<i class="fa fa-mobile" aria-hidden="true"></i> &nbsp  (+91)-756706XXXX
+						</p>
+					</div>
+				</div>
+				<div class="space"></div>
+			</div>
+		</div>
+
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+			<div class="box">
+				<div class="icon">
+					<div class="image"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+					<div class="info">
+						<h3 class="title">ADDRESS</h3>
+    					<p>
+							 <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp Venkataramana Colony
+							 Guntur-522006
+						</p>
+					</div>
+				</div>
+				<div class="space"></div>
+			</div>
+		</div>
+		<!-- /Boxes de Acoes -->
+
+		<!--My Portfolio  dont Copy this -->
+
+	</div>
+</div>
+
+</div>
+{% endblock content %}

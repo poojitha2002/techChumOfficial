@@ -1,0 +1,57 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CLJ2NKE58"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-5CLJ2NKE58');
+  </script>
+  <title>Login Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+<body>
+<center><h3 class="text-danger bg-warning text-white">Welcome to TechChum-Recommender</h3></center>
+<br>
+<h4><b>How it works?</b></h4>
+
+<h6>Enter your codeforces handle below and click on sign in. Now you will be able to check your profile and the topics where you were weak.Start Solving and improve your problem solving ability:)</h6>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-b-160 p-t-50">
+        <form class="login100-form validate-form" action="{% url 'userPage' %}" method="post">
+          {% csrf_token %}
+<br><br>
+<img src="{% static 'blog/cf.png' %}" alt="Codeforces" >
+ <div class="form-group wrap-input100 rs1 validate-input" data-validate="Username is required">
+    <label for="exampleInputEmail1"><b>Codeforces Username</b></label>
+    <input type="text" class="form-control input100" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" placeholder="Enter your codeforces username" required>
+
+  </div>
+
+
+          <div class="container-login100-form-btn">
+            <button type="submit" class="login100-form-btn btn btn-primary">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% if giveError %}
+  <script>
+    alert("Username Doesn't Exist");
+  </script>
+  {% endif %}
+</body>
+{% endblock content %}

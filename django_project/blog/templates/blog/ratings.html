@@ -1,0 +1,9 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+
+{% if chart %}
+ <img src="data:image/png;base64, {{chart|safe}}"
+{% endif %}
+
+{% endblock content %}

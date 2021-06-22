@@ -1,0 +1,94 @@
+
+
+
+
+
+ {% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<style>
+    .opp{
+    font-family: 'Lobster', cursive;
+    font-size:64px;
+    color:#DAA520;
+    padding-left:400px;
+   }
+
+</style>
+ <div class="opp">Opportunities</div>
+
+
+<div class="bs-example">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#home" class="nav-link active" data-toggle="tab">Scholarships</a>
+        </li>
+        <li class="nav-item">
+            <a href="#profile" class="nav-link" data-toggle="tab">Internships</a>
+        </li>
+        <li class="nav-item">
+            <a href="#messages" class="nav-link" data-toggle="tab">Fellowships</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="home">
+            <h4 class="mt-2">Scholarships</h4>
+              <div>
+
+ {% ifequal c 1  %}
+  <a href="{% url 'addScholarship' %}"><button type="button" class="btn btn-info">Add Scholarship</button></a><br><br>
+  {% endifequal %}
+
+            {% for s in scholorships %}
+             <p >{{s.url|safe}}</p>
+                    {% ifequal c 1  %}
+                       <a href="{% url 'deleteScholarship' s.id %}"><button type="button" class="btn btn-danger">Delete this Scholarship</button></a><br><br>
+                    {% endifequal %}
+                <br>
+                <br>
+
+            {% endfor %}
+                </div>
+        </div>
+        <div class="tab-pane fade" id="profile">
+            <h4 class="mt-2">Internships</h4>
+                <div>
+
+ {% ifequal c 1  %}
+  <a href="{% url 'addInternship' %}"><button type="button" class="btn btn-info">Add Internship</button></a><br><br>
+  {% endifequal %}
+            {% for s in internships %}
+               <p >{{s.url|safe}}</p>
+                      {% ifequal c 1  %}
+                       <a href="{% url 'deleteInternship' s.id %}"><button type="button" class="btn btn-danger">Delete this Internship</button></a><br><br>
+                    {% endifequal %}
+                <br>
+                <br>
+
+            {% endfor %}
+                </div>
+        </div>
+        <div class="tab-pane fade" id="messages">
+            <h4 class="mt-2">Fellowships</h4>
+                 <div>
+
+ {% ifequal c 1  %}
+  <a href="{% url 'addFellowship' %}"><button type="button" class="btn btn-info">Add Fellowship</button></a><br><br>
+  {% endifequal %}
+            {% for s in fellowships %}
+             <p >{{s.url|safe}}</p>
+                     {% ifequal c 1  %}
+                       <a href="{% url 'deleteFellowship' s.id %}"><button type="button" class="btn btn-danger">Delete this Fellowship</button></a><br><br>
+                    {% endifequal %}
+                <br>
+                <br>
+
+            {% endfor %}
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

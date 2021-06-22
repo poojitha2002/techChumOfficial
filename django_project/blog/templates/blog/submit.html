@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ {% load static %}
+ <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend >Paste your Answer link</legend>
+               {{form}}
+            </fieldset>
+            <div >
+                <button class="btn btn-outline-info" type="submit">Add Details</button>
+            </div>
+        </form>
+           </div>
+
+{% endblock content %}

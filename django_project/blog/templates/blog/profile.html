@@ -1,0 +1,553 @@
+{% load static %}
+
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CLJ2NKE58"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-5CLJ2NKE58');
+  </script>
+  <title>{{user.handle}} Profile</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+
+  <!-- Font -->
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CAllura" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/jpg"
+    href="https://4.bp.blogspot.com/-XDhgx0rKXZs/XIFWwjkQFSI/AAAAAAAAE80/BZomz5pCmF0FyiqEXqFBcYWOx98noEB_wCPcBGAYYCw/w1200-h630-p-k-no-nu/codeforces.png" />
+  <!-- Stylesheets -->
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link href="{% static 'profile/common-css/ionicons.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'profile/01-cv-portfolio/css/styles.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'profile/01-cv-portfolio/css/responsive.css' %}" rel="stylesheet" />
+  <style>
+    h4.font-yellow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .custom-rank-color {
+      font-size: 21px;
+
+        {
+        % if user.rank=="newbie"%
+      }
+
+      color: gray;
+
+        {
+        % elif user.rank=="pupil"%
+      }
+
+      color: green;
+
+        {
+        % elif user.rank=="specialist"%
+      }
+
+      color: rgb(3, 168, 158);
+
+        {
+        % elif user.rank=="expert"%
+      }
+
+      color: blue;
+
+        {
+        % elif user.rank=="candidate master"%
+      }
+
+      color: rgb(170, 0, 170);
+
+        {
+        % elif user.rank=="master"%
+      }
+
+      color: rgb(255, 140, 0);
+
+        {
+        % elif user.rank=="international master"%
+      }
+
+      color: rgb(255, 140, 0);
+
+        {
+        % elif user.rank=="Grandmaster"%
+      }
+
+      color: rgb(255, 0, 255);
+
+        {
+        % elif user.rank=="international grandmaster"%
+      }
+
+      color: red;
+
+        {
+        % else %
+      }
+
+      color: red;
+
+        {
+        % endif %
+      }
+    }
+
+    .custom-rank-circle {
+      margin-right: 5px;
+      margin-left: 5px;
+      color: grey;
+      font-size: 17px;
+    }
+
+
+.side{
+	position: fixed;
+	top:50%;
+	right:0px;
+	transform:translateY(-50%);
+}
+.side a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:60px;
+	height:50px;
+	margin:0px;
+	text-decoration:none;
+	padding: 0px;
+	line-height:0px;
+	background-color:#4682B4;
+	border:2px solid #778899;
+	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+}
+.side a:hover{
+	background-color: #b3ecff;
+	transition:all ease 0.5s;
+}
+
+/*FOOTER*/
+
+footer {
+  background: #16222A;
+  background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+  background: linear-gradient(59deg, #3A6073, #16222A);
+  color: white;
+  margin-top:100px;
+}
+
+footer a {
+  color: #fff;
+  font-size: 14px;
+  transition-duration: 0.2s;
+}
+
+footer a:hover {
+  color: #FA944B;
+  text-decoration: none;
+}
+
+.copy {
+  font-size: 12px;
+  padding: 10px;
+  border-top: 1px solid #FFFFFF;
+}
+
+.footer-middle {
+  padding-top: 2em;
+  color: white;
+}
+
+
+/*SOCİAL İCONS*/
+
+/* footer social icons */
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+
+/* footer social icons */
+
+.social-network a.icoFacebook:hover {
+  background-color: #3B5998;
+}
+
+.social-network a.icoLinkedin:hover {
+  background-color: #007bb7;
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoLinkedin:hover i {
+  color: #fff;
+}
+
+.social-network a.socialIcon:hover,
+.socialHoverClass {
+  color: #44BCDD;
+}
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms--transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.social-circle i {
+  color: #595959;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.social-network a {
+  background-color: #F9F9F9;
+}
+.footer{
+  background: #152F4F;
+  color:white;
+
+  .links{
+    ul {list-style-type: none;}
+    li a{
+      color: white;
+      transition: color .2s;
+      &:hover{
+        text-decoration:none;
+        color:#4180CB;
+        }
+    }
+  }
+  .about-company{
+    i{font-size: 25px;}
+    a{
+      color:white;
+      transition: color .2s;
+      &:hover{color:#4180CB}
+    }
+  }
+  .location{
+    i{font-size: 18px;}
+  }
+  .copyright p{border-top:1px solid rgba(255,255,255,.1);}
+}
+
+
+    </style>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+
+    {% if title %}
+        <title>TechChum - {{ title }}</title>
+    {% else %}
+    <title>
+          TechChum
+        </title>
+<link rel="shortcut icon" href="https://drive.google.com/file/d/10uvIx17yJyr8xAiPNvmuLsnWxQtaxBFd/view?usp=sharing.ico" />
+
+
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'homepage' %}">TechChum </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+
+              <a class="nav-item nav-link" href="{% url 'homepage' %}">Home</a>
+
+              <a class="nav-item nav-link" href="{% url 'practice' %}">Practice</a>
+
+              <a class="nav-item nav-link" href="{% url 'contests' %}">Contests</a>
+
+                  <a class="nav-item nav-link" href="{% url 'blog-home' %}">Discussion Forum</a>
+
+                   <a class="nav-item nav-link" href="{% url 'index' %}">Recommendation System</a>
+                   <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Prepare
+  </button>
+
+  <div class="dropdown-menu">
+
+      <a   style="text-decoration:none"  href="{% url 'courses' %}" ><button class="dropdown-item"  >Courses</button></a>
+
+
+ <a   style="text-decoration:none"  href="{% url 'mock' %}" ><button class="dropdown-item"  >Mock Interviews</button></a>
+       <a   style="text-decoration:none"  href="{% url 'opp' %}" ><button class="dropdown-item"  >Opportunities Club</button></a>
+
+       <a   style="text-decoration:none"  href="{% url 'klu' %}" ><button class="dropdown-item"  >KL Hub</button></a>
+
+
+
+
+  </div>
+</div>
+
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+
+                <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    More
+  </button>
+  <div class="dropdown-menu">
+      <a   style="text-decoration:none"  href="{% url 'profile' %}" ><button class="dropdown-item"  >Profile</button></a>
+  <a   style="text-decoration:none"  href="{% url 'memes' %}" ><button class="dropdown-item"  >Relax</button></a>
+<br>
+  <a   style="text-decoration:none"  href="{% url 'goodies'  %}" ><button class="dropdown-item">Goodies</button></a>
+
+       <a   style="text-decoration:none"  href="{% url 'contact' %}" ><button class="dropdown-item"  >Contact Us</button></a>
+
+       <a   style="text-decoration:none"  href="{% url 'blog-about' %}" ><button class="dropdown-item"  >About Us</button></a>
+
+
+
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+
+<section class="intro-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1 col-lg-2"></div>
+        <div class="col-md-10 col-lg-8">
+          <div class="intro">
+            <div class="profile-img">
+              <img src="{{user.titlePhoto}}" alt="" />
+            </div>
+              <h2> {{user.handle}}</h2>
+            <h2><b>{{user.firstName}} {{user.lastName}}</b></h2>
+            <h4 class="font-yellow"><b>{{user.rating}}</b>
+              <ul>
+                <li><span class="custom-rank-circle">●</span><span class="custom-rank-color"><b>{{user.rank}}</b><span>
+                </li>
+              </ul>
+            </h4>
+            <ul class="information margin-tb-30">
+              <li><b>Last Online : </b>{{lastOnline}}</li>
+              {% if user.email|length > 0 %}
+              <li><b>EMAIL : </b>{{user.email}}</li>
+              {% else %}
+              <li><b>EMAIL : </b>no email linked</li>
+              {% endif %}
+              {% if user.contribution <= 0 %}
+              <li><b>Contribution : <span style="color:red">{{user.contribution}}</span></b></li>
+              {% else %}
+              <li><b>Contribution : <span style="color:green">+{{user.contribution}}<span></b></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <h1>Verdicts of {{user.handle}}</h1>
+
+<div class="container">
+{% if chart %}
+        <img src="data:image/png;base64, {{ chart|safe }} ">
+        {% endif %}
+</div>
+
+             <h1>Tags of {{user.handle}}</h1>
+
+<div class="container">
+{% if chart1 %}
+        <img src="data:image/png;base64, {{ chart1|safe }} ">
+        {% endif %}
+</div>
+
+          <section id="weakSections">
+    <div class="contest-sec">
+      <div class="heading">
+        <h2>
+          <u>Suggested</u> Practice Problems for
+          <span class="custom-rank-color"> {{user.handle}} </span>
+        </h2>
+      </div>
+      <div class="section2">
+        {% for key,problems in tags.items %}
+        <div class="pro-card">
+          <div class="contentBx">
+            <h2>{{key}}</h2>
+            {% for problem in problems %}
+            <div class="count-items">
+              <h3>
+                <a href="{{problem.1}}" class"problem" target="_blank">{{problem.0}}</a>
+              </h3>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="fixedRefresh" id="refresh">
+    <form action="{% url 'refresh' %}" method="post">
+      {% csrf_token %}
+      <input id="your_name" type="text" name="username" value="{{user.handle}}">
+      <button id="inpt_btn" type="submit" value="OK" name="refresh">
+        <span>Refresh Problems</span>
+        <i class="fa fa-refresh icon" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
+
+
+
+        </div>
+     <!--    <div class="col-md-4">
+          <div class="content-section">
+            <h3>Our Sidebar</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Latest Posts</li>
+                <li class="list-group-item list-group-item-light">Announcements</li>
+                <li class="list-group-item list-group-item-light">Calendars</li>
+                <li class="list-group-item list-group-item-light">etc</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>-->
+    </main>
+
+    </div>
+
+          <div class="side"> <a href="{% url 'paint' %}">Rough</a>  </div>
+
+
+<div class="mt-5 pt-5 pb-5 footer">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-xs-12 about-company">
+      <h2 style="color:white;">TechChum</h2>
+      <p class="pr-5 text-white-50">Upskill through Learning
+
+      </p>
+    </div>
+    <div class="col-lg-3 col-xs-12 ">
+      <h4 class="pr-5 text-white-50" style="color:white;">Quick Links</h4>
+        <ul class="m-0 p-0">
+          <li>- <a href="{% url 'practice' %}">Practice</a></li>
+          <li>- <a href="{% url 'contests' %}">Contests</a></li>
+          <li>- <a href="{% url 'mock' %}">Mock interviews</a></li>
+          <li>- <a href="{% url 'opp' %}">Opportunities Club</a></li>
+          <li>- <a href="{% url 'goodies'  %}">Goodies</a></li>
+        </ul>
+    </div>
+
+    <div class="col-lg-4 col-xs-12 location">
+      <h4 class="mt-lg-0 mt-sm-4" style="color:white;">Follow Us </h4>
+        <ul class="social-network social-circle">
+             <li><a href="https://www.facebook.com/techchum.techchum" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+             <li><a href="https://www.linkedin.com/company/techchum/" class="icoLinkedin"target="_blank"  title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+
+             <li><a href="https://www.instagram.com/techchum/" class="icoLinkedin" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+
+             <li><a href="https://t.me/techchum" class="icoLinkedin" title="Telegram" target="_blank"><i class="fa fa-telegram"></i></a></li>
+            </ul>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col copyright">
+      <p class=""><small class="text-white-50">© 2021. All Rights Reserved.</small></p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

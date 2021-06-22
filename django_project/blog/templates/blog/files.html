@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ {% load static %}
+{% ifequal c 1  %}
+  <a href="{% url 'addFile' id %}"><button type="button" class="btn btn-info">Add File</button></a>
+  {% endifequal %}
+{% for r in allfiles %}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{r.title}}</h5>
+    <p class="card-text">{{r.content}}</p>
+
+    <a href="{{ r.file.url }}" class="btn btn-primary" target="_blank">Open pdf</a>
+<br><br>
+ {% ifequal c 1  %}
+<a href="{% url 'deletecontentinKL' r.id %}" class="btn btn-primary">Delete File</a>
+      {% endifequal %}
+  </div>
+</div>
+<br>
+{% endfor %}
+{% endblock content %}

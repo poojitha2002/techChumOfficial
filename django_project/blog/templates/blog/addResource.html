@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ {% load static %}
+ <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend >Add Resource</legend>
+               {{form.as_p}}
+            </fieldset>
+            <div >
+                <button class="btn btn-outline-info" type="submit">Add</button>
+            </div>
+        </form>
+           </div>
+
+{% endblock content %}

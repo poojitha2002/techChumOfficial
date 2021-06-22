@@ -1,0 +1,49 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ {% load static %}
+
+ {% ifequal c 1  %}
+  <a href="{% url 'addContest' %}"><button type="button" class="btn btn-info">Add Contest</button></a>
+  {% endifequal %}
+
+<table class="table">
+
+ <thead>
+    <tr>
+
+      <th scope="col">Contest Name</th>
+      <th scope="col">Tags</th>
+      <th scope="col">Start Time</th>
+        <th scope="col">End Time</th>
+         <th scope="col">Go to Contest</th>
+         {% ifequal c 1  %}
+         <th scope="col">Delete Contest</th>
+  {% endifequal %}
+
+    </tr>
+ </thead>
+{% for r in cont %}
+
+
+  <tbody>
+    <tr>
+
+      <td>{{r.contest_name}}</td>
+      <td>{{r.tags}}</td>
+      <td>{{r.start}}</td>
+        <td>{{r.end}}</td>
+
+ <td><a href="{% url 'contestDesc' r.id %}"><button class="btn btn-primary" >Enter Contest</button></a></td>
+ {% ifequal c 1  %}
+ <td><a href="{% url 'deleteContest' r.id %}"><button class="btn btn-primary" >Delete Contest</button></a></td>
+         {% endifequal %}
+
+    </tr>
+
+
+
+
+{% endfor %}
+     </tbody>
+    </table>
+{% endblock content %}

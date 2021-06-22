@@ -1,0 +1,96 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/hopping.css' %}">
+        <script src="{% static 'blog/shopping.js' %}"  async></script>
+ <script src="{% static 'blog/shopping.js' %}" ></script>
+{% for i in good %}
+Your coins: {{i.coins}}
+{% endfor %}
+
+ {% ifequal c 1  %}
+  <a href="{% url 'addgifts' %}"><button type="button" class="btn btn-info">Add Gifts</button></a>
+  {% endifequal %}
+
+<br>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Activity</th>
+      <th scope="col">Coins earned</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>100% attendance participation reward  </td>
+      <td>50 coins</td>
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Contest Top Ranks (Upto 3 ranks)</td>
+      <td>11-Rank</td>
+
+    </tr>
+
+      <tr>
+      <th scope="row">3</th>
+      <td>Creating Quality Courses</td>
+      <td>100 coins</td>
+
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Practice Problems</td>
+      <td>1 coin for each</td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+ <center><h4>Goodies</h4></center><br>
+
+
+        <section class="container content-section">
+
+<div class="card" class="car-items" style="width: 18rem;">
+
+              {% for i in vouchers %}
+                <div class="car-item card">
+                    <span class="car-item-title card-title">{{i.title}}</span><br><br>
+                    <img class="car-item-image card-img-top" src="{% static 'blog/a.png' %}">
+                       <div class="car-item-details">
+                        <p class="para card-text">{{i.content}}</p>
+                       <center> <span class="car-item-price">Rs.{{i.coins}}</span></center>
+                        <button class="btn btn-primary car-item-button" type="button">Add To Cart</button>
+                         <span></span>
+                    </div>
+                </div>
+              <hr>
+              {% endfor %}
+            </div>
+        </section>
+        <section class="container content-section">
+            <center><h2 class="section-header">CART</h2></center>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+
+                <span class="cart-price cart-header cart-column">PRICE</span>
+<span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">Rs.0/-</span>
+            </div>
+          <a href="buy.html" target=" " class="btn btn-primary btn-purchase">Buy Now</a>
+        </section>
+
+{% endblock content %}
