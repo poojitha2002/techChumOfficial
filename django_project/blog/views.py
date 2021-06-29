@@ -39,7 +39,6 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
-
 from  blog.extraMethods import userDetails, convertUnixTime, getTags, contestDetails
 
 # Create your views here.
@@ -443,8 +442,6 @@ def practice(request):
 
     context={'items':page}
     return render(request,'blog/practice.html',context)
-
-
 
 
 @login_required
